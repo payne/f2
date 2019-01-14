@@ -13,6 +13,7 @@ import { NoteDetailComponent } from './note-detail/note-detail.component';
 import { NotesService } from './notes.service';
 
 import { TableComponent } from '../table/table.component';
+import { PeopleTableComponent } from '../people-table/people-table.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { TableComponent } from '../table/table.component';
     NgbModule.forRoot(),
     FormsModule
   ],
-  declarations: [NotesListComponent, NoteDetailComponent, TableComponent],
+  declarations: [NotesListComponent, NoteDetailComponent,
+    TableComponent, PeopleTableComponent],
   providers: [NotesService]
 })
 export class NotesModule { }

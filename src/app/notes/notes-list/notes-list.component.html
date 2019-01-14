@@ -9,6 +9,7 @@
 <input [(ngModel)]="content" placeholder="Add your own note" class="input" name="note">
 
 
+<people-table></people-table>
 <app-table></app-table>
 
 <button class="button is-success" (click)="clickHandler()" [disabled]="content?.length < 2 || content?.length > 200">
