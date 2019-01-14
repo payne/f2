@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatTableModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,6 +21,7 @@ import { PeopleTableComponent } from '../people-table/people-table.component';
     CommonModule, RouterModule, ReactiveFormsModule,
     BrowserModule,
     CdkTableModule,
+    MatTableModule,
     NgbModule.forRoot(),
     FormsModule
   ],

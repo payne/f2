@@ -1,3 +1,34 @@
-<p>
-  people-table works!
-</p>
+<p> start of people-table works! </p>
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>
+      Name
+    </mat-header-cell>
+    <mat-cell *matCellDef="let operator">
+      {{operator.name}}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef>
+      Name
+    </mat-header-cell>
+    <mat-cell *matCellDef="let operator">
+      {{operator.category}}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="views">
+    <mat-header-cell *matHeaderCellDef>
+      Name
+    </mat-header-cell>
+    <mat-cell *matCellDef="let operator">
+      {{operator.views}}
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="['name', 'category', 'views']">
+
+  </mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['name', 'category', 'views']">
+
+  </mat-row>
+</mat-table>
+<p> end of people-table works! </p>
