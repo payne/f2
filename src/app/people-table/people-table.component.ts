@@ -1,16 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { NotesService } from '../notes/notes.service';
+import { Observable } from 'rxjs';
 import { MatTableDataSource } from '@angular/material';
+import { DataSource } from '@angular/cdk/table';
 
 export interface OperatorInfo {
   name: string;
-  category:
-  | 'combination'
-  | 'filtering'
-  | 'creation'
-  | 'error handling'
-  | 'multicasting'
-  | 'transformation'
-  | 'utility';
+  category: string;
   views: number;
 }
 
@@ -26,10 +22,20 @@ export const OPERATOR_INFO: OperatorInfo[] = [
   styleUrls: ['./people-table.component.scss']
 })
 export class PeopleTableComponent implements OnInit {
-  public dataSource = new MatTableDataSource(OPERATOR_INFO);
-  constructor() { }
+  public dataSource: MatTableDataSource<OperatorInfo>;
+  notes: Observable<any[]>;
+  constructor(private notesService: NotesService) {
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    this.notes = this.notesService.getData();
+    let opNotes: OperatorInfo[] = [];
+    // Ugh!  We need something about obervable...
+    this.notes.forEach(n => {
+      opNotes.push({ name: n['title'], category: n['content'], views: n['hearts'] });
+    });
+    console.log(`opNotes=${opNotes}`);
+    this.dataSource = new MatTableDataSource(opNotes);
+  }
 }
