@@ -22,8 +22,17 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
-// IMPORTANT
-// Add your own project credentials to environments/*.ts
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms'
+
+import { 
+  MatTableModule, 
+  MatFormFieldModule, 
+  MatInputModule, 
+  MatSortModule, 
+  MatDialogModule, 
+  MatButtonModule 
+} from '@angular/material';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +44,13 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
     UiModule,
     NotesModule,
     UploadsModule,
+    FormsModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSortModule,
+    MatDialogModule,
+    MatButtonModule,
     AngularFireModule.initializeApp(environment.firebase, 'firestarter'),
     AngularFirestoreModule,
     AngularFireAuthModule,
