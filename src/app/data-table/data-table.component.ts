@@ -26,7 +26,8 @@ export class DataTableComponent implements AfterViewInit {
     this.afs.collection<any>('hackers').valueChanges().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
-    })
+    });
+    this.addOne(); // Adds one canned row
   }
 
   applyFilter(filterValue: string) {
@@ -42,6 +43,17 @@ export class DataTableComponent implements AfterViewInit {
       data: data
     });
     */
+  }
+
+  addOne() {
+    const hacker = {
+      name: 'Pascal Payne',
+      age: 8,
+      email: 'Pascal@MattPayne.org',
+      phrase: 'Crawl, then walk.',
+      uid: 'abc'
+    }
+    this.afs.collection('hackers').doc(hacker.uid).set(hacker)
   }
 
   trackByUid(index, item) {
