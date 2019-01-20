@@ -47,11 +47,11 @@ export class DataTableComponent implements AfterViewInit {
 
   addOne() {
     const hacker = {
-      name: 'Pascal Payne',
-      age: 8,
-      email: 'Pascal@MattPayne.org',
+      name: 'Cello Payne',
+      age: 12,
+      email: 'Cello@MattPayne.org',
       phrase: 'Crawl, then walk.',
-      uid: 'abc'
+      uid: 'abc'+1
     }
     this.afs.collection('hackers').doc(hacker.uid).set(hacker)
   }

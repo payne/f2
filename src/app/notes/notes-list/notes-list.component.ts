@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NotesService } from '../notes.service';
 import { Observable } from 'rxjs';
+// Really, should have a DataTableService -- Or have DataTableComponent use DataTableService
+import { DataTableComponent } from '../../data-table/data-table.component';
 
 @Component({
   selector: 'notes-list',
@@ -22,6 +24,7 @@ export class NotesListComponent implements OnInit {
   clickHandler() {
     this.notesService.createNote(this.title, this.content);
     this.content = '';
+
   }
 
 }
